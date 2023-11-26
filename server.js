@@ -5,9 +5,10 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
-const expressValidator = require("express-validator");
-const authRoutes = require("./routes/auth");
+// const expressValidator = require("express-validator");
 require("dotenv").config();
+const authRoutes = require("./routes/auth");
+
 // import routes
 
 const userRoutes = require("./routes/user");
@@ -41,7 +42,7 @@ connectDB();
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(expressValidator());
+// app.use(expressValidator());
 app.use(cors());
 
 // routes middleware
