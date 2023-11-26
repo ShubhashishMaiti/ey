@@ -124,16 +124,19 @@ const Chatbot_interface = () => {
 		}
 		// console.log(data.text);
 		if (data.response_key === "place") {
-			const r = await await fetch("http://127.0.0.1:5000/description", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					data: response,
-					response_key: data.response_key,
-				}),
-			});
+			const r = await await fetch(
+				"https://flask-app-ey.onrender.com/description",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						data: response,
+						response_key: data.response_key,
+					}),
+				}
+			);
 			const d = await r.json();
 			setChatHistory((prevChatHistory) => [
 				...prevChatHistory,
